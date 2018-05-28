@@ -1,7 +1,7 @@
 ﻿#include "Item.h"
 
-Item::Item(int chave, const float x, const float y, sf::Sprite& spr): chave(chave) {
-	this->botao = new Botao(x, y, spr);
+Item::Item(int chave, const float x, const float y, std::string nome_spr): chave(chave) {
+	this->botao = new Botao(x, y, nome_spr);
 }
 
 Item::~Item() {

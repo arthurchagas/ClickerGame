@@ -1,12 +1,2 @@
-﻿  Botao.cpp
-  Construcao.cpp
-  Item.cpp
-  Lista.cpp
-  ListaConstrucao.cpp
-  ListaUpgrade.cpp
-  Main.cpp
-  NoConstrucao.cpp
-  NoUpgrade.cpp
-  Upgrade.cpp
-  Generating Code...
+﻿  Main.cpp
   ClickerGame.vcxproj -> C:\Users\LuizArthurChagasOliv\Desktop\ClickerGame\ClickerGame\Debug\ClickerGame.exe

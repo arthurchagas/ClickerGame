@@ -2,7 +2,9 @@
 #include "Util.h"
 
 
-Botao::Botao(const float x, const float y, sf::Sprite& spr): x(x), y(y), spr(spr) {
+Botao::Botao(const float x, const float y, std::string nome_spr): x(x), y(y) {
+	this->txt.loadFromFile(nome_spr);
+	this->spr.setTexture(this->txt);
 	this->spr.setPosition(this->x, this->y);
 }
 
@@ -13,7 +15,7 @@ bool Botao::clicado(const int x, const int y) const {
 		y < this->spr.getPosition().y + this->spr.getGlobalBounds().height;
 }
 
-void Botao::set_texto(const std::string& txt, const unsigned posicao) {
+void Botao::set_texto(const std::string& txt, unsigned posicao) {
 	if (posicao > 4)
 		return;
 
@@ -54,28 +56,28 @@ void Botao::set_texto(const std::string& txt, const unsigned posicao) {
 	this->texto[posicao].setPosition(x, y);
 }
 
-void Botao::set_char_size(const unsigned tamanho, const unsigned posicao) {
+void Botao::set_char_size(const unsigned tamanho, unsigned posicao) {
 	if (posicao > 4)
 		return;
 
 	this->texto[posicao].setCharacterSize(tamanho);
 }
 
-void Botao::set_fill_color(const sf::Color cor, const unsigned posicao) {
+void Botao::set_fill_color(const sf::Color cor, unsigned posicao) {
 	if (posicao > 4)
 		return;
 
 	this->texto[posicao].setFillColor(cor);
 }
 
-void Botao::set_fonte(sf::Font& fonte, const unsigned posicao) {
+void Botao::set_fonte(sf::Font& fonte, unsigned posicao) {
 	if (posicao > 4)
 		return;
 
 	this->texto[posicao].setFont(fonte);
 }
 
-sf::Text& Botao::get_text(const unsigned posicao) {
+sf::Text& Botao::get_text(unsigned posicao) {
 	return this->texto[posicao];
 }
 

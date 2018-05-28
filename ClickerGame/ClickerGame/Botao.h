@@ -6,7 +6,7 @@ class Botao {
 public:
 
 
-	Botao(float x, float y, sf::Sprite& spr);
+	Botao(float x, float y, std::string nome_spr);
 
 	bool clicado(int x, int y) const;
 
@@ -22,6 +22,7 @@ public:
 private:
 	float x;
 	float y;
+	sf::Texture txt;
 	sf::Sprite spr;
 
 	sf::Text texto[5];

@@ -2,10 +2,10 @@
 #include "Util.h"
 #include <sstream>
 
-Upgrade::Upgrade(int id, const float x, const float y, sf::Sprite& spr, int construcaoAlvo, double bonus,
+Upgrade::Upgrade(int id, const float x, const float y, std::string nome_spr, int construcaoAlvo, double bonus,
                  unsigned long long preco,
                  const std::string& descricao,
-                 const std::string& nome): Item(id, x, y, spr),
+                 const std::string& nome): Item(id, x, y, nome_spr),
                                            construcaoAlvo(construcaoAlvo),
                                            bonus(bonus),
                                            preco(preco),

@@ -2,9 +2,9 @@
 #include "Construcao.h"
 #include "Util.h"
 
-Construcao::Construcao(int chave, const float x, const float y, sf::Sprite& spr, double rate, unsigned long long preco,
+Construcao::Construcao(int chave, const float x, const float y, std::string nome_spr, double rate, unsigned long long preco,
                        std::string nome)
-	: Item(chave, x, y, spr), quantidade(0),
+	: Item(chave, x, y, nome_spr), quantidade(0),
 	  rate(rate),
 	  bonus(1),
 	  preco(preco),
@@ -42,7 +42,12 @@ void Construcao::set_bonus(double bonus) {
 void Construcao::comprar(long double& total, long double& rateGlobal, Botao* principal) {
 	std::stringstream auxStream;
 	if (total >= this->preco) {
+		rateGlobal += this->rate * this->bonus;
+		auxStream << std::setprecision(2) << std::fixed << rateGlobal << " /s";
+		principal->set_texto(auxStream.str(), ABAIXO);
+
 		total -= this->preco;
+		auxStream.str(std::string());
 		auxStream << std::setprecision(0) << std::fixed << floor(total);
 		principal->set_texto(auxStream.str(), ACIMA);
 
@@ -54,11 +59,6 @@ void Construcao::comprar(long double& total, long double& rateGlobal, Botao* pri
 		auxStream.str(std::string());
 		auxStream << std::setprecision(2) << std::fixed << this->quantidade << '*' << this->rate * this->bonus << " /s";
 		this->get_botao()->set_texto(auxStream.str(), ABAIXO);
-
-		rateGlobal += this->rate * this->bonus;
-		auxStream.str(std::string());
-		auxStream << std::setprecision(2) << std::fixed << rateGlobal << " /s";
-		principal->set_texto(auxStream.str(), ABAIXO);
 	}
 }
 

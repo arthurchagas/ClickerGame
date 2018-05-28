@@ -20,18 +20,17 @@ int main() {
 	sf::Font fontePrincipal;
 	sf::Clock timer;
 
+	janelaPrincipal.clear(sf::Color::Blue);
+
 	std::stringstream auxStream;
 
 	fontePrincipal.loadFromFile("arial.ttf");
 	long double total = 0;
 	long double rateGlobal = 0;
 
-	sf::Texture texturaPrincipal;
-	texturaPrincipal.loadFromFile("principal.png");
-	sf::Sprite sprite_principal(texturaPrincipal);
-	auto botaoPrincipal = new Botao((janelaPrincipal.getSize().x - texturaPrincipal.getSize().x) / 2.0f,
-	                                (janelaPrincipal.getSize().y - texturaPrincipal.getSize().y) / 2.0f,
-	                                sprite_principal);
+	auto botaoPrincipal = new Botao((janelaPrincipal.getSize().x - 200) / 2.0f,
+	                                (janelaPrincipal.getSize().y - 200) / 2.0f,
+									"principal.png");
 	botaoPrincipal->set_fonte(fontePrincipal, ACIMA);
 	botaoPrincipal->set_char_size(24, ACIMA);
 	botaoPrincipal->set_fill_color(sf::Color::White, ACIMA);
@@ -46,14 +45,11 @@ int main() {
 
 
 	auto construcoes = new ListaConstrucao();
-	sf::Texture texturaConstrucao;
-	texturaConstrucao.loadFromFile("construcao1.png");
-	sf::Sprite spriteConstrucao(texturaConstrucao);
 
 	for (auto i = 0; i < 5; ++i) {
 		construcoes->inserir_final(new Construcao(
-			i, static_cast<float>(janelaPrincipal.getSize().x - texturaConstrucao.getSize().x - 100),
-			static_cast<float>(100 + i * 125), spriteConstrucao, rates[i], precos[i], nomes[i]));
+			i, static_cast<float>(janelaPrincipal.getSize().x - 300),
+			static_cast<float>(100 + i * 125), "construcao_" + std::to_string(i) + ".png", rates[i], precos[i], nomes[i]));
 
 		auto auxItem = construcoes->get_ultimo()->get_item();
 		auto auxBotao = auxItem->get_botao();
@@ -73,14 +69,10 @@ int main() {
 	}
 
 	auto upgrades = new ListaUpgrade();
-	sf::Texture texturaUpgrade;
-	texturaUpgrade.loadFromFile("melhora.png");
-	sf::Sprite spriteUpgrade(texturaUpgrade);
-
 	for (auto i = 0; i < 5; ++i) {
 		for (auto j = 0; j < 3; ++j) {
 			upgrades->inserir_final(new Upgrade(i * 3 + j, static_cast<float>(100 + j * 90), static_cast<float>(100 + i * 90),
-			                                    spriteUpgrade, i, 2, 100,
+												"upgrade_" + std::to_string(i) + ".png", i, 2, 100,
 			                                    "Upgrade para a construcao 1",
 			                                    "Dedo no Cu"));
 
@@ -101,7 +93,8 @@ int main() {
 			auxStream.str(std::string());
 			auxStream << std::setprecision(0) << std::fixed << floor(total);
 			botaoPrincipal->set_texto(auxStream.str(), ACIMA);
-		}
+		} else
+			timer.restart();
 
 		while (janelaPrincipal.pollEvent(evento)) {
 			switch (evento.type) {
@@ -166,7 +159,7 @@ int main() {
 			}
 		}
 
-		janelaPrincipal.clear();
+		janelaPrincipal.clear(sf::Color::Blue);
 		janelaPrincipal.draw(botaoPrincipal->get_spr());
 		janelaPrincipal.draw(botaoPrincipal->get_text(ACIMA));
 		janelaPrincipal.draw(botaoPrincipal->get_text(ABAIXO));

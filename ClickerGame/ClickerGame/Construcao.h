@@ -6,7 +6,7 @@
 class Construcao : public Item {
 public:
 
-	Construcao(int chave, float x, float y, sf::Sprite& spr, double rate, unsigned long long preco, std::string nome);
+	Construcao(int chave, float x, float y, std::string nome_spr, double rate, unsigned long long preco, std::string nome);
 
 	unsigned long long get_quantidade() const;
 	double get_rate() const;

@@ -4,7 +4,7 @@
 class Item {
 public:
 
-	Item(int chave, float x, float y, sf::Sprite& spr);
+	Item(int chave, float x, float y, std::string nome_spr);
 	~Item();
 
 

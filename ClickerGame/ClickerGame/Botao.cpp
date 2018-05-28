@@ -2,21 +2,18 @@
 #include "Util.h"
 
 
-Botao::Botao(const float x, const float y, sf::Sprite& spr): x(x), y(y), spr(spr)
-{
+Botao::Botao(const float x, const float y, sf::Sprite& spr): x(x), y(y), spr(spr) {
 	this->spr.setPosition(this->x, this->y);
 }
 
-bool Botao::clicado(const int x, const int y) const
-{
+bool Botao::clicado(const int x, const int y) const {
 	return x > this->spr.getPosition().x &&
 		x < this->spr.getPosition().x + this->spr.getGlobalBounds().width &&
 		y > this->spr.getPosition().y &&
 		y < this->spr.getPosition().y + this->spr.getGlobalBounds().height;
 }
 
-void Botao::set_texto(const std::string& txt, const unsigned posicao)
-{
+void Botao::set_texto(const std::string& txt, const unsigned posicao) {
 	if (posicao > 4)
 		return;
 
@@ -24,8 +21,7 @@ void Botao::set_texto(const std::string& txt, const unsigned posicao)
 
 	float x, y;
 
-	switch (posicao)
-	{
+	switch (posicao) {
 	default:
 	case ACIMA:
 		x = this->spr.getPosition().x + this->spr.getGlobalBounds().width / 2 - this->texto[posicao].getGlobalBounds().width /
@@ -58,37 +54,32 @@ void Botao::set_texto(const std::string& txt, const unsigned posicao)
 	this->texto[posicao].setPosition(x, y);
 }
 
-void Botao::set_char_size(const unsigned tamanho, const unsigned posicao)
-{
+void Botao::set_char_size(const unsigned tamanho, const unsigned posicao) {
 	if (posicao > 4)
 		return;
 
 	this->texto[posicao].setCharacterSize(tamanho);
 }
 
-void Botao::set_fill_color(const sf::Color cor, const unsigned posicao)
-{
+void Botao::set_fill_color(const sf::Color cor, const unsigned posicao) {
 	if (posicao > 4)
 		return;
 
 	this->texto[posicao].setFillColor(cor);
 }
 
-void Botao::set_fonte(sf::Font& fonte, const unsigned posicao)
-{
+void Botao::set_fonte(sf::Font& fonte, const unsigned posicao) {
 	if (posicao > 4)
 		return;
 
 	this->texto[posicao].setFont(fonte);
 }
 
-sf::Text& Botao::get_text(const unsigned posicao)
-{
+sf::Text& Botao::get_text(const unsigned posicao) {
 	return this->texto[posicao];
 }
 
 
-sf::Sprite& Botao::get_spr()
-{
+sf::Sprite& Botao::get_spr() {
 	return spr;
 }

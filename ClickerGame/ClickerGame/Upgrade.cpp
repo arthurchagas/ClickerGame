@@ -1,14 +1,16 @@
 ﻿#include "Upgrade.h"
+#include "Util.h"
+#include <sstream>
 
-Upgrade::Upgrade(int id, const float x, const float y, sf::Sprite& spr, int construcaoAlvo, double bonus, double preco,
+Upgrade::Upgrade(int id, const float x, const float y, sf::Sprite& spr, int construcaoAlvo, double bonus,
+                 unsigned long long preco,
                  const std::string& descricao,
-                 const std::string& nome, bool visivel): Item(id, x, y, spr),
-                                                         construcaoAlvo(construcaoAlvo),
-                                                         bonus(bonus),
-                                                         preco(preco),
-                                                         descricao(descricao),
-                                                         nome(nome),
-                                                         visivel(visivel) {
+                 const std::string& nome): Item(id, x, y, spr),
+                                           construcaoAlvo(construcaoAlvo),
+                                           bonus(bonus),
+                                           preco(preco),
+                                           descricao(descricao),
+                                           nome(nome) {
 }
 
 bool Upgrade::comprar(long double& total, long double& rateGlobal, Botao* principal, NoConstrucao* alvo) {
@@ -34,7 +36,7 @@ bool Upgrade::comprar(long double& total, long double& rateGlobal, Botao* princi
 	return true;
 }
 
-double Upgrade::get_preco() const {
+unsigned long long Upgrade::get_preco() const {
 	return preco;
 }
 

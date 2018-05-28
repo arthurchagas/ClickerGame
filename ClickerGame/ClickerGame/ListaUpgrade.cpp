@@ -19,7 +19,7 @@ ListaUpgrade::~ListaUpgrade() {
 }
 
 void ListaUpgrade::inserir_final(Upgrade* I) {
-	if (Lista::cheia())
+	if (cheia())
 		return;
 
 	auto aux = new NoUpgrade(I);
@@ -47,7 +47,7 @@ void ListaUpgrade::remover_final() {
 }
 
 void ListaUpgrade::inserir_comeco(Upgrade* I) {
-	if (Lista::cheia())
+	if (cheia())
 		return;
 
 	auto aux = new NoUpgrade(I);
@@ -59,7 +59,6 @@ void ListaUpgrade::inserir_comeco(Upgrade* I) {
 
 	++this->tamanho;
 }
-
 
 
 void ListaUpgrade::remover_comeco() {
@@ -100,7 +99,7 @@ NoUpgrade* ListaUpgrade::encontrar_por_chave(int chave) {
 		if (aux->get_item()->get_chave() == chave)
 			return aux;
 		aux = aux->get_proximo();
-		}
+	}
 
 	return nullptr;
 }

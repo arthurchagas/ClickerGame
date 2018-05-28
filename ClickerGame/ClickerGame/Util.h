@@ -1,7 +1,6 @@
 ﻿#pragma once
 
-enum direcao
-{
+enum direcao {
 	ACIMA,
 	ABAIXO,
 	DIREITA,

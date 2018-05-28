@@ -3,7 +3,7 @@
 #include "Upgrade.h"
 #include "NoUpgrade.h"
 
-class ListaUpgrade : protected Lista {
+class ListaUpgrade : public Lista {
 public:
 
 	ListaUpgrade();

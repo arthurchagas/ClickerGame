@@ -1,14 +1,12 @@
 ﻿#pragma once
 #include <iomanip>
-#include <sstream>
 #include "Item.h"
-#include "Util.h"
 #include <string>
 
 class Construcao : public Item {
 public:
 
-	Construcao(int chave, const float x, const float y, sf::Sprite& spr, double rate, unsigned long long preco, std::string nome);
+	Construcao(int chave, float x, float y, sf::Sprite& spr, double rate, unsigned long long preco, std::string nome);
 
 	unsigned long long get_quantidade() const;
 	double get_rate() const;

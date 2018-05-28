@@ -19,7 +19,7 @@ ListaConstrucao::~ListaConstrucao() {
 }
 
 void ListaConstrucao::inserir_final(Construcao* I) {
-	if (Lista::cheia())
+	if (cheia())
 		return;
 
 	auto aux = new NoConstrucao(I);
@@ -47,7 +47,7 @@ void ListaConstrucao::remover_final() {
 }
 
 void ListaConstrucao::inserir_comeco(Construcao* I) {
-	if (Lista::cheia())
+	if (cheia())
 		return;
 
 	auto aux = new NoConstrucao(I);
@@ -88,7 +88,7 @@ void ListaConstrucao::remover_por_chave(int chave) {
 	--this->tamanho;
 }
 
-long double ListaConstrucao::recalcular_rate_global() {
+long double ListaConstrucao::recalcular_rate_global() const {
 	auto aux = this->primeiro->get_proximo();
 	long double rateGlobal = 0;
 

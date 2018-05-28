@@ -2,9 +2,8 @@
 #include "NoConstrucao.h"
 #include "Lista.h"
 
-class ListaConstrucao : protected Lista {
+class ListaConstrucao : public Lista {
 public:
-
 	ListaConstrucao();
 	~ListaConstrucao();
 
@@ -13,7 +12,7 @@ public:
 	void inserir_comeco(Construcao* I);
 	void remover_comeco();
 	void remover_por_chave(int chave);
-	long double recalcular_rate_global();
+	long double recalcular_rate_global() const;
 	NoConstrucao* encontrar_por_chave(int chave);
 	NoConstrucao* get_ultimo();
 	NoConstrucao* get_primeiro();

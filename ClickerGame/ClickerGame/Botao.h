@@ -2,8 +2,7 @@
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Text.hpp>
 
-class Botao
-{
+class Botao {
 public:
 
 
@@ -14,7 +13,7 @@ public:
 	void set_texto(const std::string& txt, unsigned posicao);
 	void set_char_size(unsigned tamanho, unsigned posicao);
 	void set_fill_color(sf::Color cor, unsigned posicao);
-	void set_fonte(sf::Font &fonte, unsigned posicao);
+	void set_fonte(sf::Font& fonte, unsigned posicao);
 
 
 	sf::Text& get_text(unsigned posicao);

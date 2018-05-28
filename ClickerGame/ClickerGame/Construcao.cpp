@@ -1,4 +1,6 @@
-﻿#include "Construcao.h"
+﻿#include <sstream>
+#include "Construcao.h"
+#include "Util.h"
 
 Construcao::Construcao(int chave, const float x, const float y, sf::Sprite& spr, double rate, unsigned long long preco,
                        std::string nome)
@@ -46,7 +48,7 @@ void Construcao::comprar(long double& total, long double& rateGlobal, Botao* pri
 
 		++this->quantidade;
 
-		this->preco += ceil(this->quantidade * (1 + exp(1) / 5.0));
+		this->preco += static_cast<unsigned long long>(ceil(this->quantidade * (1 + exp(1) / 5.0)));
 		this->get_botao()->set_texto(std::to_string(this->preco), ACIMA);
 
 		auxStream.str(std::string());
@@ -63,7 +65,7 @@ void Construcao::comprar(long double& total, long double& rateGlobal, Botao* pri
 void Construcao::vender(long double& total, long double& rateGlobal, Botao* principal) {
 	std::stringstream aux_stream;
 	if (this->quantidade > 0) {
-		this->preco -= ceil(this->quantidade * (1 + exp(1) / 5.0));
+		this->preco -= static_cast<unsigned long long>(ceil(this->quantidade * (1 + exp(1) / 5.0)));
 		this->get_botao()->set_texto(std::to_string(this->preco), ACIMA);
 
 		total += this->preco / 2.0;

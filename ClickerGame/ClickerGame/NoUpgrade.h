@@ -3,7 +3,7 @@
 
 class NoUpgrade {
 public:
-	NoUpgrade(Upgrade *item);
+	NoUpgrade(Upgrade* item);
 	NoUpgrade();
 	~NoUpgrade();
 

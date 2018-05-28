@@ -3,7 +3,7 @@
 
 class NoConstrucao {
 public:
-	NoConstrucao(Construcao *item);
+	NoConstrucao(Construcao* item);
 	NoConstrucao();
 	~NoConstrucao();
 

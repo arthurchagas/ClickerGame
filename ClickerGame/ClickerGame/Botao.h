@@ -4,9 +4,8 @@
 
 class Botao {
 public:
-
-
 	Botao(float x, float y, std::string nome_spr);
+	Botao(float x, float y, std::string nome_spr, sf::Font &fonte, unsigned tamanho_caracter, sf::Color cor);
 
 	bool clicado(int x, int y) const;
 

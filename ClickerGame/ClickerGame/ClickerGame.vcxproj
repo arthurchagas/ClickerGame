@@ -46,12 +46,15 @@
     <Font Include="arial.ttf" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="background.png" />
     <Image Include="construcao_0.png" />
     <Image Include="construcao_1.png" />
     <Image Include="construcao_2.png" />
     <Image Include="construcao_3.png" />
     <Image Include="construcao_4.png" />
+    <Image Include="jogar.png" />
     <Image Include="principal.png" />
+    <Image Include="titulo.png" />
     <Image Include="upgrade_0.png" />
     <Image Include="upgrade_1.png" />
     <Image Include="upgrade_2.png" />

@@ -5,6 +5,7 @@ class Item {
 public:
 
 	Item(int chave, float x, float y, std::string nome_spr);
+	Item(int chave, float x, float y, std::string nome_spr, sf::Font &fonte, unsigned tamanho_caracter, sf::Color cor);
 	~Item();
 
 

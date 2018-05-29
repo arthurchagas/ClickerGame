@@ -135,5 +135,14 @@
     <Image Include="upgrade_4.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="background.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="jogar.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="titulo.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

@@ -8,6 +8,19 @@ Botao::Botao(const float x, const float y, std::string nome_spr): x(x), y(y) {
 	this->spr.setPosition(this->x, this->y);
 }
 
+Botao::Botao(float x, float y, std::string nome_spr, sf::Font& fonte, unsigned tamanho_caracter,
+             sf::Color cor) : x(x), y(y) {
+	this->txt.loadFromFile(nome_spr);
+	this->spr.setTexture(this->txt);
+	this->spr.setPosition(this->x, this->y);
+
+	for (auto i = 0; i < 5; ++i) {
+		this->set_fonte(fonte, i);
+		this->set_char_size(tamanho_caracter, i);
+		this->set_fill_color(cor, i);
+	}
+}
+
 bool Botao::clicado(const int x, const int y) const {
 	return x > this->spr.getPosition().x &&
 		x < this->spr.getPosition().x + this->spr.getGlobalBounds().width &&

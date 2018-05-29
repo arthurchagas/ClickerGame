@@ -6,7 +6,9 @@
 class Construcao : public Item {
 public:
 
-	Construcao(int chave, float x, float y, std::string nome_spr, double rate, unsigned long long preco, std::string nome);
+	Construcao(int chave, float x, float y, std::string nome_spr, double rate, unsigned long long preco);
+	Construcao(int chave, float x, float y, std::string nome_spr, sf::Font& fonte, unsigned tamanho_caracter,
+			   sf::Color cor, double rate, unsigned long long preco);
 
 	unsigned long long get_quantidade() const;
 	double get_rate() const;
@@ -27,5 +29,4 @@ private:
 	double rate;
 	double bonus;
 	unsigned long long preco;
-	std::string nome;
 };

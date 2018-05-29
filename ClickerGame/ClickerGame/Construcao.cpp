@@ -2,13 +2,21 @@
 #include "Construcao.h"
 #include "Util.h"
 
-Construcao::Construcao(int chave, const float x, const float y, std::string nome_spr, double rate, unsigned long long preco,
-                       std::string nome)
+Construcao::Construcao(int chave, const float x, const float y, std::string nome_spr, double rate,
+                       unsigned long long preco)
 	: Item(chave, x, y, nome_spr), quantidade(0),
 	  rate(rate),
 	  bonus(1),
-	  preco(preco),
-	  nome(nome) {
+	  preco(preco) {
+}
+
+Construcao::Construcao(int chave, float x, float y, std::string nome_spr, sf::Font& fonte, unsigned tamanho_caracter,
+                       sf::Color cor, double rate, unsigned long long preco) : Item(chave, x, y, nome_spr, fonte,
+                                                                                    tamanho_caracter, cor),
+                                                                               quantidade(0),
+                                                                               rate(rate),
+                                                                               bonus(1),
+                                                                               preco(preco) {
 }
 
 unsigned long long Construcao::get_quantidade() const {
@@ -43,7 +51,7 @@ void Construcao::comprar(long double& total, long double& rateGlobal, Botao* pri
 	std::stringstream auxStream;
 	if (total >= this->preco) {
 		rateGlobal += this->rate * this->bonus;
-		auxStream << std::setprecision(2) << std::fixed << rateGlobal << " /s";
+		auxStream << std::setprecision(2) << std::fixed << rateGlobal << "CRU/s";
 		principal->set_texto(auxStream.str(), ABAIXO);
 
 		total -= this->preco;
@@ -54,37 +62,36 @@ void Construcao::comprar(long double& total, long double& rateGlobal, Botao* pri
 		++this->quantidade;
 
 		this->preco += static_cast<unsigned long long>(ceil(this->quantidade * (1 + exp(1) / 5.0)));
-		this->get_botao()->set_texto(std::to_string(this->preco), ACIMA);
+		auxStream.str(std::string());
+		auxStream << this->preco << "CRU";
+		this->get_botao()->set_texto(auxStream.str(), ACIMA);
 
 		auxStream.str(std::string());
-		auxStream << std::setprecision(2) << std::fixed << this->quantidade << '*' << this->rate * this->bonus << " /s";
+		auxStream << std::setprecision(2) << std::fixed << this->quantidade << '*' << this->rate * this->bonus << "CRU/s";
 		this->get_botao()->set_texto(auxStream.str(), ABAIXO);
 	}
 }
 
 void Construcao::vender(long double& total, long double& rateGlobal, Botao* principal) {
-	std::stringstream aux_stream;
+	std::stringstream auxStream;
 	if (this->quantidade > 0) {
 		this->preco -= static_cast<unsigned long long>(ceil(this->quantidade * (1 + exp(1) / 5.0)));
-		this->get_botao()->set_texto(std::to_string(this->preco), ACIMA);
+		auxStream << this->preco << "CRU";
+		this->get_botao()->set_texto(auxStream.str(), ACIMA);
 
 		total += this->preco / 2.0;
-		aux_stream << std::setprecision(0) << std::fixed << floor(total);
-		principal->set_texto(aux_stream.str(), ACIMA);
+		auxStream << std::setprecision(0) << std::fixed << floor(total);
+		principal->set_texto(auxStream.str(), ACIMA);
 
 		--this->quantidade;
 
-		aux_stream.str(std::string());
-		aux_stream << std::setprecision(2) << std::fixed << this->quantidade << '*' << this->rate * this->bonus << " /s";
-		this->get_botao()->set_texto(aux_stream.str(), ABAIXO);
+		auxStream.str(std::string());
+		auxStream << std::setprecision(2) << std::fixed << this->quantidade << '*' << this->rate * this->bonus << "CRU/s";
+		this->get_botao()->set_texto(auxStream.str(), ABAIXO);
 
 		rateGlobal -= this->rate * this->bonus;
-		aux_stream.str(std::string());
-		aux_stream << std::setprecision(2) << std::fixed << rateGlobal << " /s";
-		principal->set_texto(aux_stream.str(), ABAIXO);
+		auxStream.str(std::string());
+		auxStream << std::setprecision(2) << std::fixed << rateGlobal << "CRU/s";
+		principal->set_texto(auxStream.str(), ABAIXO);
 	}
-}
-
-std::string& Construcao::get_nome() {
-	return this->nome;
 }

@@ -1,4 +1,5 @@
-﻿#pragma once
+﻿#ifndef BOTAO_H
+#define BOTAO_H
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Text.hpp>
 
@@ -26,3 +27,4 @@ private:
 
 	sf::Text texto[5];
 };
+#endif //BOTAO_H

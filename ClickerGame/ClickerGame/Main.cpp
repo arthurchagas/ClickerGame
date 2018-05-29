@@ -1,9 +1,11 @@
 #include <iostream>
 #include <sstream>
 #include <iomanip>
+#include <SFML/Graphics.hpp>
+#include <cmath>
+
 #include "ListaConstrucao.h"
 #include "Util.h"
-#include <SFML/Graphics.hpp>
 #include "Construcao.h"
 #include "NoConstrucao.h"
 #include "ListaUpgrade.h"
@@ -17,7 +19,7 @@ int main() {
 	unsigned long long precos[] = {10, 100, 500, 1000, 5000};
 	bool menu = true;
 	sf::Event evento;
-	sf::RenderWindow janelaPrincipal(sf::VideoMode(largura, altura), "Hello SFML", sf::Style::Fullscreen);
+	sf::RenderWindow janelaPrincipal(sf::VideoMode(largura, altura), "RU Clicker", sf::Style::Fullscreen);
 	sf::Font fontePrincipal;
 	fontePrincipal.loadFromFile("arial.ttf");
 	sf::Clock timer;

@@ -1,4 +1,5 @@
-﻿#pragma once
+﻿#ifndef NO_CONSTRUCAO_H
+#define NO_CONSTRUCAO_H
 #include "Construcao.h"
 
 class NoConstrucao {
@@ -23,3 +24,4 @@ private:
 	NoConstrucao* proximo;
 	NoConstrucao* anterior;
 };
+#endif //NO_CONSTRUCAO_H

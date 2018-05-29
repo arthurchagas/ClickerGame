@@ -1,4 +1,5 @@
-﻿#pragma once
+﻿#ifndef NO_UPGRADE_H
+#define NO_UPGRADE_H
 #include "Upgrade.h"
 
 class NoUpgrade {
@@ -23,3 +24,5 @@ private:
 	NoUpgrade* proximo;
 	NoUpgrade* anterior;
 };
+
+#endif //NO_UPGRADE_H

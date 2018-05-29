@@ -1,4 +1,5 @@
-﻿#pragma once
+﻿#ifndef CONSTRUCAO_H
+#define CONSTRUCAO_H
 #include <iomanip>
 #include "Item.h"
 #include <string>
@@ -30,3 +31,4 @@ private:
 	double bonus;
 	unsigned long long preco;
 };
+#endif //CONSTRUCAO_H

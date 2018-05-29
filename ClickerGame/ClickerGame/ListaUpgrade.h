@@ -1,4 +1,5 @@
-﻿#pragma once
+﻿#ifndef LISTA_UPGRADE_H
+#define LISTA_UPGRADE_H
 #include "Lista.h"
 #include "Upgrade.h"
 #include "NoUpgrade.h"
@@ -23,3 +24,4 @@ private:
 	NoUpgrade* primeiro;
 	NoUpgrade* ultimo;
 };
+#endif //LISTA_UPGRADE_H

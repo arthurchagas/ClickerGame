@@ -1,6 +1,7 @@
 ﻿#include "Upgrade.h"
 #include "Util.h"
 #include <sstream>
+#include <cmath>
 
 Upgrade::Upgrade(int id, const float x, const float y, std::string nome_spr, int construcaoAlvo, double bonus,
                  unsigned long long preco) :

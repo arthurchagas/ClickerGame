@@ -1,4 +1,5 @@
-﻿#pragma once
+﻿#ifndef LISTA_CONSTRUCAO_H
+#define LISTA_CONSTRUCAO_H
 #include "NoConstrucao.h"
 #include "Lista.h"
 
@@ -22,3 +23,4 @@ private:
 	NoConstrucao* primeiro;
 	NoConstrucao* ultimo;
 };
+#endif //LISTA_CONSTRUCAO_H

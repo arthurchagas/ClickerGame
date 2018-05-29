@@ -1,4 +1,5 @@
-﻿#pragma once
+﻿#ifndef LISTA_H
+#define LISTA_H
 
 class Lista {
 protected:
@@ -12,3 +13,4 @@ public:
 	static bool cheia();
 private:
 };
+#endif //LISTA_H

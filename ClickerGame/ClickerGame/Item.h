@@ -1,4 +1,5 @@
-﻿#pragma once
+﻿#ifndef ITEM_H
+#define ITEM_H
 #include "Botao.h"
 
 class Item {
@@ -18,3 +19,4 @@ private:
 	int chave;
 	Botao* botao;
 };
+#endif //ITEM_H

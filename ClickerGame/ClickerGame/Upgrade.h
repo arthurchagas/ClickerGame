@@ -1,4 +1,5 @@
-﻿#pragma once
+﻿#ifndef UPGRADE_H
+#define UPGRADE_H
 #include <string>
 #include "Item.h"
 #include "NoConstrucao.h"
@@ -22,3 +23,4 @@ private:
 	double bonus;
 	unsigned long long preco;
 };
+#endif //UPGRADE_H

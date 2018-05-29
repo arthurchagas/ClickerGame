@@ -1,4 +1,5 @@
 ﻿#include <sstream>
+#include <cmath>
 #include "Construcao.h"
 #include "Util.h"
 

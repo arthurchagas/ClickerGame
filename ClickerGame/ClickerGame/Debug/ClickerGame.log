@@ -1,3 +1,12 @@
-﻿  Main.cpp
-c:\users\luizarthurchagasoliv\desktop\clickergame\clickergame\clickergame\main.cpp(89): warning C4244: 'argument': conversion from 'double' to 'unsigned __int64', possible loss of data
+﻿  Botao.cpp
+  Construcao.cpp
+  Item.cpp
+  Lista.cpp
+  ListaConstrucao.cpp
+  ListaUpgrade.cpp
+  Main.cpp
+  NoConstrucao.cpp
+  NoUpgrade.cpp
+  Upgrade.cpp
+  Generating Code...
   ClickerGame.vcxproj -> C:\Users\LuizArthurChagasOliv\Desktop\ClickerGame\ClickerGame\Debug\ClickerGame.exe

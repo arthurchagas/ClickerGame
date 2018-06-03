@@ -36,9 +36,6 @@
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Construcao.cpp">
-      <Filter>Source Files\Item</Filter>
-    </ClCompile>
     <ClCompile Include="NoConstrucao.cpp">
       <Filter>Source Files\No</Filter>
     </ClCompile>
@@ -63,6 +60,9 @@
     <ClCompile Include="ListaUpgrade.cpp">
       <Filter>Source Files\Lista</Filter>
     </ClCompile>
+    <ClCompile Include="Construcao.cpp">
+      <Filter>Source Files\Item</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="NoConstrucao.h">
@@ -73,9 +73,6 @@
     </ClInclude>
     <ClInclude Include="Construcao.h">
       <Filter>Header Files\Item</Filter>
-    </ClInclude>
-    <ClInclude Include="Botao.h">
-      <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Util.h">
       <Filter>Header Files</Filter>
@@ -94,6 +91,9 @@
     </ClInclude>
     <ClInclude Include="ListaUpgrade.h">
       <Filter>Header Files\Lista</Filter>
+    </ClInclude>
+    <ClInclude Include="Botao.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

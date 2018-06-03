@@ -25,7 +25,7 @@ bool Upgrade::comprar(long double& total, long double& rateGlobal, Botao* princi
 
 	std::stringstream auxStream;
 	total -= this->preco;
-	auxStream << std::setprecision(0) << std::fixed << floor(total);
+	auxStream << "Creditos RU:" << std::setprecision(0) << std::fixed << floor(total);
 	principal->set_texto(auxStream.str(), ACIMA);
 
 	alvo->get_item()->set_bonus(alvo->get_item()->get_bonus() + this->bonus);

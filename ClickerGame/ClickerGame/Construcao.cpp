@@ -57,7 +57,7 @@ void Construcao::comprar(long double& total, long double& rateGlobal, Botao* pri
 
 		total -= this->preco;
 		auxStream.str(std::string());
-		auxStream << std::setprecision(0) << std::fixed << floor(total);
+		auxStream <<  "Creditos RU:" << std::setprecision(0) << std::fixed << floor(total);
 		principal->set_texto(auxStream.str(), ACIMA);
 
 		++this->quantidade;
@@ -81,7 +81,7 @@ void Construcao::vender(long double& total, long double& rateGlobal, Botao* prin
 		this->get_botao()->set_texto(auxStream.str(), ACIMA);
 
 		total += this->preco / 2.0;
-		auxStream << std::setprecision(0) << std::fixed << floor(total);
+		auxStream <<  "Creditos RU:" << std::setprecision(0) << std::fixed << floor(total);
 		principal->set_texto(auxStream.str(), ACIMA);
 
 		--this->quantidade;

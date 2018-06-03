@@ -5,10 +5,10 @@
 #include <cmath>
 
 #include "ListaConstrucao.h"
-#include "Util.h"
 #include "Construcao.h"
 #include "NoConstrucao.h"
 #include "ListaUpgrade.h"
+#include "Util.h"
 
 #define largura 1366
 #define altura 768
@@ -18,6 +18,7 @@ int main() {
 	double rates_upgrades[] = {2.5, 10.0, 15.0};
 	unsigned long long precos[] = {10, 100, 500, 1000, 5000};
 	bool menu = true;
+
 	sf::Event evento;
 	sf::RenderWindow janelaPrincipal(sf::VideoMode(largura, altura), "RU Clicker", sf::Style::Fullscreen);
 	sf::Font fontePrincipal;
@@ -86,9 +87,13 @@ int main() {
 	auto upgrades = new ListaUpgrade();
 	for (auto i = 0; i < 5; ++i) {
 		for (auto j = 0; j < 3; ++j) {
-			upgrades->inserir_final(new Upgrade(i * 3 + j, static_cast<float>(100 + j * 90), static_cast<float>(100 + i * 130),
-			                                    "upgrade_" + std::to_string(i) + ".png", fontePrincipal, 18, sf::Color::Black, i,
-			                                    rates_upgrades[j], precos[i] * 7.14005494464 / (1.61803398875 + 3 - j)));
+			upgrades->inserir_final(
+				new Upgrade(i * 3 + j, static_cast<float>(100 + j * 90), static_cast<float>(100 + i * 130),
+				            "upgrade_" + std::to_string(i) + ".png", fontePrincipal, 18, sf::Color::Black, i,
+				            rates_upgrades[j],
+				            static_cast<unsigned long long>(ceil(precos[i] * 7.14005494464 / (1.61803398875 + 3 - j)))
+				)
+			);
 
 			auto auxItem = upgrades->get_ultimo()->get_item();
 			auto auxBotao = auxItem->get_botao();

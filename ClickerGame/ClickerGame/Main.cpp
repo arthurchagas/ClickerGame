@@ -56,7 +56,7 @@ int main() {
 
 	auto botaoPrincipal = new Botao((janelaPrincipal.getSize().x - 280) / 2.0f,
 	                                (janelaPrincipal.getSize().y - 280) / 2.0f,
-	                                "principal.png", fontePrincipal, 24, sf::Color::Black);
+	                                "principal.png", fontePrincipal, 24, sf::Color::White);
 	auxStream << "Creditos RU:" << std::setprecision(0) << std::fixed << floor(total);
 	botaoPrincipal->set_texto(auxStream.str(), ACIMA);
 	auxStream.str(std::string());
@@ -69,7 +69,7 @@ int main() {
 		construcoes->inserir_final(new Construcao(
 			i, static_cast<float>(janelaPrincipal.getSize().x - 300),
 			static_cast<float>(100 + i * 125), "construcao_" + std::to_string(i) + ".png", fontePrincipal, 18,
-			sf::Color::Black, rates[i], precos[i]));
+			sf::Color::White, rates[i], precos[i]));
 
 		auto auxItem = construcoes->get_ultimo()->get_item();
 		auto auxBotao = auxItem->get_botao();
@@ -89,7 +89,7 @@ int main() {
 		for (auto j = 0; j < 3; ++j) {
 			upgrades->inserir_final(
 				new Upgrade(i * 3 + j, static_cast<float>(100 + j * 90), static_cast<float>(100 + i * 130),
-				            "upgrade_" + std::to_string(i) + ".png", fontePrincipal, 18, sf::Color::Black, i,
+				            "upgrade_" + std::to_string(i) + ".png", fontePrincipal, 18, sf::Color::White, i,
 				            rates_upgrades[j],
 				            static_cast<unsigned long long>(ceil(precos[i] * 7.14005494464 / (1.61803398875 + 3 - j)))
 				)
@@ -110,14 +110,13 @@ int main() {
 
 	while (janelaPrincipal.isOpen()) {
 		janelaPrincipal.clear();
-		janelaPrincipal.draw(spriteBackground);
 
 		if (!menu) {
 			if (rateGlobal > 0.0) {
 				total += timer.getElapsedTime().asSeconds() * rateGlobal;
 				timer.restart();
 				auxStream.str(std::string());
-				auxStream << std::setprecision(0) << std::fixed << floor(total);
+				auxStream << "Creditos RU:" << std::setprecision(0) << std::fixed << floor(total);
 				botaoPrincipal->set_texto(auxStream.str(), ACIMA);
 			}
 			else
@@ -234,6 +233,8 @@ int main() {
 				default: break;
 				}
 			}
+
+			janelaPrincipal.draw(spriteBackground);
 
 			janelaPrincipal.draw(spriteTitulo);
 			janelaPrincipal.draw(botaoStart->get_spr());
